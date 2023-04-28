@@ -11,16 +11,9 @@ st.sidebar.title("Sentiment Analysis of Tweets about US Airlines")
 st.markdown(" This application is a Streamlit app used to analyze the sentiment of the tweets 🐦 about US airlines ✈️ ")
 st.sidebar.markdown(" This application is a Streamlit app used to analyze the sentiment of the tweets 🐦 about US airlines ✈️ ")
 
-
-DATA_URL = ("Tweets.csv")
-
-@st.cache_data()
-def load_data():
-    data = pd.read_csv(DATA_URL)
-    data['tweet_created'] = pd.to_datetime(data['tweet_created'])
-    return data
-
-data = load_data()
+data = pd.read_csv('Tweets.csv')
+if st.checkbox('Display Top 5 rows of the data'):
+    st.write(data.head())
 
 st.sidebar.subheader("Show random tweet")
 random_tweet = st.sidebar.radio('Sentiment type', ('positive','negative','neutral'))
