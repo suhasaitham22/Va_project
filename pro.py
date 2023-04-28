@@ -14,6 +14,8 @@ st.sidebar.markdown(" This application is a Streamlit app used to analyze the se
 data = pd.read_csv('Tweets.csv')
 if st.checkbox('Display Top 5 rows of the data'):
     st.write(data.head())
+    
+data['tweet_created'] = pd.to_datetime(data['tweet_created'])
 
 st.sidebar.subheader("Show random tweet")
 random_tweet = st.sidebar.radio('Sentiment type', ('positive','negative','neutral'))
