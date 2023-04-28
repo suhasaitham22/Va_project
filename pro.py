@@ -14,7 +14,7 @@ st.sidebar.markdown(" This application is a Streamlit app used to analyze the se
 
 DATA_URL = ("Tweets.csv")
 
-@st.cache_data(persist=True)
+@st.cache_data()
 def load_data():
     data = pd.read_csv(DATA_URL)
     data['tweet_created'] = pd.to_datetime(data['tweet_created'])
